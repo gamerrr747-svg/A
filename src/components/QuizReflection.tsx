@@ -93,6 +93,21 @@ export const QuizReflection: React.FC<QuizReflectionProps> = ({
 
   const score = quizQuestions.filter((q) => selectedOptions[q.id] === q.correctIndex).length;
 
+  const handleResetBlank = () => {
+    setSelectedOptions({});
+    setIsQuizSubmitted(false);
+    setHomeworkText('');
+    setAssessment({
+      usedTools: false,
+      measuredTemp: false,
+      filledTable: false,
+      calculatedHeat: false,
+      madeConclusion: false,
+      comprehensionLevel: null,
+      studentName: '',
+    });
+  };
+
   return (
     <div className="space-y-6">
       {/* 1. Bekitu Quizi (Slide 13) */}
@@ -109,15 +124,30 @@ export const QuizReflection: React.FC<QuizReflectionProps> = ({
             </h2>
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-medium text-slate-600">
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-xs font-medium text-slate-600 mr-1">
               Нәтиже: <strong className="text-sky-700 font-mono text-sm">{score} / {quizQuestions.length}</strong>
             </span>
             <button
               onClick={handleCheckQuiz}
-              className="px-4 py-2 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg shadow-sm transition"
+              className="px-3.5 py-1.5 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg shadow-sm transition"
             >
               Тестті тексеру
+            </button>
+            <button
+              onClick={handleResetBlank}
+              className="px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition"
+              title="Барлық жауаптарды өшіріп, бос күйге қайтару"
+            >
+              Бос күйге қайтару
+            </button>
+            <button
+              onClick={onGoToReport}
+              className="px-3.5 py-1.5 text-xs font-semibold text-sky-700 bg-sky-50 hover:bg-sky-100 border border-sky-200 rounded-lg transition flex items-center gap-1.5"
+              title="Бос бланкті немесе толық есепті PDF арқылы шығару"
+            >
+              <FileText className="w-3.5 h-3.5" />
+              <span>PDF бланкі</span>
             </button>
           </div>
         </div>

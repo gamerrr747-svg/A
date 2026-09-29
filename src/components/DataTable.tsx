@@ -319,7 +319,7 @@ export const DataTable: React.FC<DataTableProps> = ({ state, onGoToAnalysis }) =
         {/* Student interactive mode controls */}
         {mode === 'interactive' && (
           <div className="p-4 bg-slate-50 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={handleCheckAnswers}
                 className="px-4 py-2 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg shadow-sm transition"
@@ -331,6 +331,25 @@ export const DataTable: React.FC<DataTableProps> = ({ state, onGoToAnalysis }) =
                 className="px-3 py-2 text-xs font-medium text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 rounded-lg transition"
               >
                 Тәжірибе мәндерімен толтыру
+              </button>
+              <button
+                onClick={() => {
+                  setStudentInput({
+                    m1: '',
+                    m2: '',
+                    m_total: '',
+                    t1: '',
+                    t2: '',
+                    t_mix: '',
+                    q1: '',
+                    q2: '',
+                  });
+                  setFeedback({ submitted: false, errors: [], correctCount: 0 });
+                }}
+                className="px-3 py-2 text-xs font-medium text-slate-600 hover:text-slate-900 bg-slate-100 hover:bg-slate-200 rounded-lg transition"
+                title="Барлық торкөздерді бос қалдыру"
+              >
+                Бос тазарту
               </button>
             </div>
 

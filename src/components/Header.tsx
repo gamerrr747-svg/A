@@ -87,7 +87,7 @@ export const Header: React.FC<HeaderProps> = ({
                   : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
               }`}
             >
-              5. Хаттама
+              5. PDF Бланк & Хаттама
             </button>
           </nav>
 
@@ -132,10 +132,10 @@ export const Header: React.FC<HeaderProps> = ({
             <button
               onClick={onPrint}
               className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-white bg-sky-600 hover:bg-sky-700 rounded-lg shadow-sm transition-colors"
-              title="Есепті басып шығару немесе PDF түрінде сақтау"
+              title="Бос бланкті немесе есепті PDF түрінде сақтау / басып шығару"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span className="hidden sm:inline">Басып шығару</span>
+              <span className="hidden sm:inline">PDF / Баспа</span>
             </button>
           </div>
         </div>

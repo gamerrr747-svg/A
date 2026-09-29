@@ -36,12 +36,12 @@ export default function App() {
   const [state, setState] = useState<ExperimentState>(initialExperimentState);
 
   const [assessment, setAssessment] = useState<SelfAssessment>({
-    usedTools: true,
-    measuredTemp: true,
-    filledTable: true,
-    calculatedHeat: true,
-    madeConclusion: true,
-    comprehensionLevel: 'understood',
+    usedTools: false,
+    measuredTemp: false,
+    filledTable: false,
+    calculatedHeat: false,
+    madeConclusion: false,
+    comprehensionLevel: null,
     studentName: '',
   });
 
